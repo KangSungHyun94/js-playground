@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소수판별 프로그램</title>
+</head>
+<body>
+    <script>
+        <h1> 소수판별 프로그램 </h1>
+        var count = 0;
+        var input=prompt("소수인지 물어볼 숫자를 입력해주세요~");
+        var nInput = Number(input);
+
+
+        for(var n=0;nInput-n>=1; n++){
+            var a = nInput-n;
+            if(nInput%a===0){
+                count++;
+            }
+        }
+        if(count==2){
+            document.write(input + "은 소수입니다.");
+        }else{
+            document.write(input + "은 소수가 아닙니다.");
+        }
+    </script>
+       
+</body>
+</html>

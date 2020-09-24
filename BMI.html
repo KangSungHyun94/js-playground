@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Measurement</title>
+    <script>
+        <h1>BMI 측정 프로그램</h1>
+        var name = prompt('당신의 이름을 입력하세요');
+    var weight = prompt('당신의 몸무게를 kg 단위로 입력하세요');
+    var height = prompt('당신의 키를 cm단위로 입력하세요');
+    var nWeight = Number(weight);
+    var nHeight = Number(height);
+    nHeight=nHeight/100;
+    var bmi = nWeight/(nHeight*nHeight);
+    console.log(name+"님의 bmi 입니다.");
+    console.log(bmi);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
