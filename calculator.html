@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{padding-bottom: 20px;}
+        .out{ border: 1px solid #000; width:220px; height: 200px; position: relative; text-align: center;}
+        .scnd{ position:absolute; display: inline-block;  left:50%; top:50%; transform: translate(-50% ,-50%);padding-left:1px;}
+        
+        .input2,.input3,
+        .input1{text-align: center;}
+        
+    </style>
+    <script>
+        var result;
+        function cal(tt){
+            var num1 = document.getElementById("input1").value;
+            var num2 = document.getElementById("input2").value;
+            switch(tt){
+                case 1 :
+                    
+                    result = Number(num1) + Number(num2);
+                    break;
+                
+                case 2 :
+                    result = num1 - num2;
+                    break;
+                
+                case 3 :
+                    result = num1 * num2;
+                    break;
+                
+                case 4 :
+                    result = num1 / num2;
+                    break;
+            }
+            
+        };
+        function output(){
+            document.getElementById("result").value=result;
+        };
+     </script>
+</head>
+<body>
+    <div class="out">
+        <div class="scnd">
+        <div class="title">사칙연산 계산기</div>
+        <div>
+            <div name="calll">
+                <input type="text" id="input1" class="input1">
+            </div>
+            <div class="btn">
+                <button   onclick="cal(1)">+</button>
+                <button   onclick="cal(2)">-</button>
+                <button   onclick="cal(3)">*</button>
+                <button   onclick="cal(4)">/</button>
+            </div>
+            <div>
+                <input type="text" id="input2" class="input2">
+            </div>
+            <div class="btn2">
+                <button  onclick="output()">=</button>
+            </div>
+            <div>
+                <input type="text" id="result" class="input3">
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
