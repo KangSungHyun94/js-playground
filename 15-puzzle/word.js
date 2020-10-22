@@ -3,6 +3,7 @@ var word2 = document.getElementById('word2'); //buttons
 var word1 = document.getElementById('word1'); //answer
 var check = document.getElementById('check'); //word1 === word2?
 var progress = document.getElementById('progress'); //porgress check
+var time = document.getElementById('time');
 
 //game objects
 var game={
@@ -10,6 +11,9 @@ var game={
     'maxPlay':3,
     'current':0
 };
+
+game.startTime=Date.now();
+
 game.words = 'apple,linux,javascript,tutorial,codesquad,baby,girlfriend,legend'.split(',');
 
 //chose 1 word from words;
@@ -95,7 +99,9 @@ game.progress=function(){
         progress.innerHTML=str;
     }
     if (game.current==game.maxPlay){
-        alert("Good! Thank you for playing");
+        var sec = (Date.now() -game.startTime)/1000;
+        alert("Good! Your Record: "+sec+" sec");
+        clearInterval(x);
     }
 };
 //evnt handler for swap button
@@ -121,10 +127,18 @@ game.shuffle = function () {
         game.swap();
     }
 
-    var n = Math.floor(Math.random() * (game.letters.length-1));
+    var rmax=Math.max(game.answer.length-2,1);
+    var n = Math.floor(Math.random() * rmax) + 1;
 
     for (var i = 0; i < n; i++) {
         game.rshift();
     }
 };
 game.shuffle();
+
+var updateTime = function(){
+    var now = Date.now() -game.startTime;
+    time.innerHTML=(now/1000) +" s";
+}
+
+var x= setInterval(updateTime,50);
