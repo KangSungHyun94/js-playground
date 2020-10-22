@@ -84,9 +84,10 @@ game.progress=function(){
         game.current++;
         for(var i=0; i<this.answer.length; i++){
             this.btns.shift();
-            word2.removeChild(word2.childNodes[0]);
+            word2.removeChild(word2.childNodes[0]); //이부분 오래걸렸음. 구글링으로 방법찾음
         }
         game.init();
+        game.shuffle();
         var str = "";
         for (var i = 0; i < game.current;i++){
             str +="0";
@@ -120,7 +121,7 @@ game.shuffle = function () {
         game.swap();
     }
 
-    var n = Math.floor(Math.random() * game.letters.length);
+    var n = Math.floor(Math.random() * (game.letters.length-1));
 
     for (var i = 0; i < n; i++) {
         game.rshift();
